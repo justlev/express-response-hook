@@ -1,7 +1,7 @@
 export function responseHook(hookCallback: CallbackFunc) {
     return (req: any, res: any, next: any) => {
         const originalEnd = res.end;
-        res.end = () => {
+        res.end = (args) => {
             res.end = originalEnd;
             const {originalUrl, method, body: requestBody, headers: requestHeaders, params} = req;
             const {statusCode, headers} = res;
@@ -22,9 +22,9 @@ export function responseHook(hookCallback: CallbackFunc) {
                 },
                 `req: [${req.method} ${req.originalUrl}] res: [${statusCode}]`
             );
-            return originalEnd.apply(res);
+            return originalEnd.apply(this, args);
         };
-        next();
+        next && next();
     }
 }
 
