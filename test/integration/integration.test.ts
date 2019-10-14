@@ -7,7 +7,7 @@ describe("integration with ExpressJs", () => {
     test("it integrates as the middleware", async () => {
         const logger = jest.fn((context, line) => console.log(context, line));
         const app = express();
-        //app.use(responseHook(logger));
+        app.use(responseHook(logger));
 
         app.get('/', async (req, res) => await res.status(204).json({test: 123}));
 
@@ -15,8 +15,7 @@ describe("integration with ExpressJs", () => {
 
         const res = await request.get('/');
 
-        //expect(logger.mock.calls.length).toEqual(1);
+        expect(logger.mock.calls.length).toEqual(1);
         expect(res.status).toEqual(204);
-        expect(res.body).toEqual({test: 123});
     });
 });
