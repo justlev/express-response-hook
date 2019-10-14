@@ -1,0 +1,25 @@
+{
+  "name": "express-response-hook",
+  "version": "1.0.0",
+  "description": "An express middle to hook into responses",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "git@github.com:justlev/express-response-hook.git",
+  "author": "Lev Perlman",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "clean": "rm -rf ./dist",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.1",
+    "@types/jest": "^24.0.18",
+    "@types/supertest": "^2.0.8",
+    "express": "^4.17.1",
+    "jest": "^24.9.0",
+    "supertest": "^4.0.2",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.4"
+  }
+}
